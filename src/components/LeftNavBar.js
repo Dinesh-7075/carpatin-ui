@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import LeftNavBarList from "./LeftNavBarList";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import LeftNavBarHeadings from './LeftNavBarHeadings';
+import AppContext from "../AppContext";
 
-let headers = ["OVERVIEW", "AUTHENTICATION", "GUARDS", "ANALYTICS", "SUPPORT"];
+const headers = ["OVERVIEW", "AUTHENTICATION", "GUARDS", "ANALYTICS", "SUPPORT"];
 const headings = {
   OVERVIEW: [
     "Welcome",
@@ -30,15 +30,17 @@ const headings = {
 
 const LeftNavBar = () => {
   const [isHoveredToLeftbar, SetisHoveredToLeftbar] = useState(false);
+  const myContext = useContext(AppContext);
+  
   return (
     <div
       onMouseOver={() => SetisHoveredToLeftbar(true)}
       onMouseLeave={() => SetisHoveredToLeftbar(false)}
       className={
-        "w-[22%] shadow-lg top-20 h-[85%] px-3 " +
+        "lg:w-[22%] shadow-lg top-20 h-[85%] px-3 w-[30%] lg:block " +
         (isHoveredToLeftbar
-          ? "overflow-y-scroll absolute"
-          : "overflow-y-hidden fixed")
+          ? "overflow-y-scroll absolute "
+          : "overflow-y-hidden fixed ") + (myContext.isClickedOnMenu ? "  " : " hidden")
       }
     >
       <div className="py-1">
