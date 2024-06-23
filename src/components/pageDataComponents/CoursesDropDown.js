@@ -6,7 +6,7 @@ const CoursesDropDown = () => {
 
   return (
     <div
-      className="absolute z-50 right-0 lg:right-12 md:right-6 lg:top-[63px] top-[65px] md:top-[53px] w-[150px] h-[160px] bg-gray-700 text-sm text-white rounded-lg mx-2 border-[1px] border-gray-900 "
+      className="absolute z-50 right-0 lg:right-12 md:right-44 lg:top-[63px] top-[65px] md:top-[65px] w-[150px] h-[160px] bg-gray-700 text-sm text-white rounded-lg mx-2 border-[1px] border-gray-900 "
       onMouseOver={() => myContext.setHoveredToCourses(true)}
       onMouseLeave={() => myContext.setHoveredToCourses(false)}
     >
