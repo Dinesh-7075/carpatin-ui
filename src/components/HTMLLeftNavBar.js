@@ -5,44 +5,44 @@ import { Link } from "react-router-dom";
 import AppContext from "../AppContext";
 
 const headers = [
-  "OVERVIEW",
-  "AUTHENTICATION",
-  "GUARDS",
-  "ANALYTICS",
-  "SUPPORT",
+  "HTML OVERVIEW",
+  "HTML FORMS",
+  "HTML GRAPHICS",
+  "HTML MEDIA",
+  "HTML APIs",
 ];
 const headings = {
-  OVERVIEW: [
-    "Welcome",
-    "Getting Started",
-    "Dependencies",
-    "Environment Variables",
-    "Deployment",
-    "Routing",
-    "Theming",
-    "Redux",
-    "Server Calls",
-    "Settings",
-    "RTL",
-    "Internationalization",
+  "HTML OVERVIEW": [
+    "HTML Introduction",
+    "HTML Editors",
+    "HTML Basics",
+    "HTML Elements",
+    "HTML Attributes",
+    "HTML Paragraphs",
+    "HTML Styles",
+    "HTML Formating",
+    "HTML Quotations",
+    "HTML Comments",
+    "HTML colors",
+    "HTML Images",
   ],
 
-  AUTHENTICATION: ["Amplify", "Auth0", "Firebase", "JWT"],
-  GUARDS: ["Guest Guard", "Auth Guard", "Role Based Guard"],
+  "HTML FORMS": ["HTML Form Attributes", "HTML Input Types", "HTML Form Elements", "HTML Input Elements"],
+  "HTML GRAPHICS": ["HTML Canvas", "HTML SVG"],
 
-  ANALYTICS: ["Introduction", "Configuration", "Event tracking"],
-  SUPPORT: ["Changelog", "Contact", "Further Support"],
+  "HTML MEDIA": ["HTML Video", "HTML Audio", "HTML Plugins"],
+  "HTML APIs": ["HTML Geolocation", "HTML Drag/Drop", "HTML Web storage"],
 };
 
-const LeftNavBar = () => {
+const HTMLLeftNavBar = () => {
   const [isHoveredToLeftbar, SetisHoveredToLeftbar] = useState(false);
   const myContext = useContext(AppContext);
 
-  return (
-    ((myContext.isClickedOnCoursesItem ?  " " : <div
+  return (( ((myContext.isClickedOnCoursesItem ? (
+    <div
       className={
         "bg-slate-50 sm:block fixed lg:w-[20%] md:w-[20%] xl:w-[20%] sm:w-[30%] w-[45%] shadow-lg top-[75px] h-[95%] lg:px-3 md:px-3 lg:block md:block hover:overflow-y-auto overflow-hidden " +
-        (myContext.isClickedOnMenu ? " z-10 block " : " hidden ") +
+        (myContext.isClickedOnMenu ? " z-20 block " : " hidden ") +
         (myContext.isHoveredOnContent ? " hidden " : " block ")
       }
     >
@@ -73,7 +73,7 @@ const LeftNavBar = () => {
                           ? "text-green-400"
                           : "text-black"
                       }
-                      to={currRoute}
+                      to={"/html/" + `${currRoute}`}
                     >
                       <LeftNavBarList key={ele1} headingView={ele1} />
                     </Link>
@@ -85,8 +85,8 @@ const LeftNavBar = () => {
         </div>
       </div>
     </div>
-  )));
+  ) : " "))));
 };
 
 /* <Link to={ele1.split(" ").join("_")}><LeftNavBarList activeRoute={window.location.pathname==`/${currRoute}` ? "active" : "inActive"} key={ele1} headingView={ele1} /></Link> */
-export default LeftNavBar;
+export default HTMLLeftNavBar;

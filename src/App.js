@@ -15,6 +15,8 @@ import Settings from "./components/pageDataComponents/Settings";
 import { useState } from "react";
 import Deployment from "./components/pageDataComponents/Deployment";
 import CoursesDropDown from "./components/pageDataComponents/CoursesDropDown";
+import HTMLIntroduction from "./components/pageDataComponents/HTMLIntroduction";
+import HTMLLeftNavBar from "./components/HTMLLeftNavBar";
 
 function App() {
 
@@ -22,11 +24,14 @@ function App() {
   const [isSideBarVisible, setisSideBarVisible] = useState(true);
   const [isHoveredOnContentdata, setIsHoveredOnContentdata] = useState(false);
   const [hoveredToCourses, setHoveredToCourses] = useState(false);
+  const [isClickedOnCourseMenuItem, setIsClickedOnCourseMenuItem] = useState(false);
   const contextObject = {
     isClickedOnMenu: isClickedOnMenuBar,
     isHoveredToCourses: hoveredToCourses,
     isSideBar: isSideBarVisible,
     isHoveredOnContent: isHoveredOnContentdata,
+    isClickedOnCoursesItem: isClickedOnCourseMenuItem,
+    setIsClickedOnCourseMenuItem,
     setIsHoveredOnContentdata,
     setisSideBarVisible,
     setIsClickedOnMenuBar,
@@ -38,7 +43,7 @@ function App() {
       <AppContext.Provider value={contextObject}>
         <BrowserRouter>
           <Header />
-          <LeftNavBar />
+          {contextObject.isClickedOnCoursesItem ? <HTMLLeftNavBar /> : <LeftNavBar />}
           {contextObject.isHoveredToCourses ? (
             <CoursesDropDown />
           ) : (
@@ -59,6 +64,7 @@ function App() {
             <Route path="/redux" element={<Redux />} />
             <Route path="/server_calls" element={<ServerCalls />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/html/html_introduction" element={<HTMLIntroduction />} />
           </Routes>
         </BrowserRouter>
       </AppContext.Provider>

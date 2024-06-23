@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
+import { Link } from "react-router-dom";
 
 const CoursesDropDown = () => {
   const myContext = useContext(AppContext);
@@ -12,19 +13,22 @@ const CoursesDropDown = () => {
     >
       <div>
         <ul className="list-disc my-2 font-bold px-2">
-          <li className="flex p-2 items-center cursor-pointer">
+          <Link onClick={()=>myContext.setIsClickedOnCourseMenuItem(true)} to="/html/html_introduction"><li className="flex p-2 items-center cursor-pointer">
             <i class="fa-brands fa-html5 mr-2"></i>
             <span className="px-1">HTML</span>
           </li>
+          </Link>
+          <hr></hr>
+          <Link onClick={()=>myContext.setIsClickedOnCourseMenuItem(false)} to="/">
+          <li className="flex p-2 items-center cursor-pointer">
+            <i class="fa-brands fa-react mr-2"></i>
+            <span className="px-2">ReactJS</span>
+          </li>
+          </Link>
           <hr></hr>
           <li className="flex p-2 items-center cursor-pointer">
             <i class="fa-brands fa-css3 mr-2"></i>
             <span className="px-2">CSS</span>
-          </li>
-          <hr></hr>
-          <li className="flex p-2 items-center cursor-pointer">
-            <i class="fa-brands fa-react mr-2"></i>
-            <span className="px-2">ReactJS</span>
           </li>
           <hr></hr>
           <li className="flex p-2 items-center cursor-pointer">
