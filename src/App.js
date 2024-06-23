@@ -1,11 +1,7 @@
 import "./index.css";
 import Header from "./components/Header";
 import LeftNavBar from "./components/LeftNavBar";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppContext from "./AppContext";
 import Welcome from "./components/pageDataComponents/Welcome";
 import GettingStarted from "./components/pageDataComponents/GettingStarted";
@@ -15,43 +11,59 @@ import Routing from "./components/pageDataComponents/Routing";
 import Themeing from "./components/pageDataComponents/Themeing";
 import Redux from "./components/pageDataComponents/Redux";
 import ServerCalls from "./components/pageDataComponents/ServerCalls";
-import  Settings  from "./components/pageDataComponents/Settings";
+import Settings from "./components/pageDataComponents/Settings";
 import { useState } from "react";
+import Deployment from "./components/pageDataComponents/Deployment";
+import CoursesDropDown from "./components/pageDataComponents/CoursesDropDown";
 
 function App() {
+
   const [isClickedOnMenuBar, setIsClickedOnMenuBar] = useState(false);
   const [isSideBarVisible, setisSideBarVisible] = useState(true);
+  const [isHoveredOnContentdata, setIsHoveredOnContentdata] = useState(false);
+  const [hoveredToCourses, setHoveredToCourses] = useState(false);
   const contextObject = {
     isClickedOnMenu: isClickedOnMenuBar,
+    isHoveredToCourses: hoveredToCourses,
     isSideBar: isSideBarVisible,
+    isHoveredOnContent: isHoveredOnContentdata,
+    setIsHoveredOnContentdata,
     setisSideBarVisible,
     setIsClickedOnMenuBar,
+    setHoveredToCourses,
   };
-  console.log(contextObject.isClickedOnMenu);
+
   return (
     <div>
       <AppContext.Provider value={contextObject}>
-      <BrowserRouter>
-        <Header />
-        <LeftNavBar />
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/Welcome" element={<Welcome />} />
-          <Route path="/Getting_Started" element={<GettingStarted />} />
-          <Route path="/Dependencies" element={<Dependencies />} />
-          <Route path="/Environment_Variables" element={<EnvironmentVars />} />
-          <Route path="/Deployment" element={<Dependencies />} />
-          <Route path="/Routing" element={<Routing />} />
-          <Route path="/Theming" element={<Themeing />} />
-          <Route path="/Redux" element={<Redux />} />
-          <Route path="/Server_Calls" element={<ServerCalls />} />
-          <Route path="/Settings" element={<Settings />} />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Header />
+          <LeftNavBar />
+          {contextObject.isHoveredToCourses ? (
+            <CoursesDropDown />
+          ) : (
+            <span></span>
+          )}
+          <Routes>
+            <Route path="/" element={<Welcome />} />
+            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/getting_started" element={<GettingStarted />} />
+            <Route path="/dependencies" element={<Dependencies />} />
+            <Route
+              path="/environment_variables"
+              element={<EnvironmentVars />}
+            />
+            <Route path="/deployment" element={<Deployment />} />
+            <Route path="/routing" element={<Routing />} />
+            <Route path="/theming" element={<Themeing />} />
+            <Route path="/redux" element={<Redux />} />
+            <Route path="/server_calls" element={<ServerCalls />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </BrowserRouter>
       </AppContext.Provider>
     </div>
   );
 }
-
 
 export default App;

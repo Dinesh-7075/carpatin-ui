@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
-const LeftNavBarList = ({ headingView }) => {
-
+const LeftNavBarList = ({ headingView,  }) => {
+ 
   return (
-    <li className="mx-3 my-2 text-black font-bold text-sm">
+    <li  className={"mr-2 ml-1 my-2 font-bold text-sm hover:bg-gray-200 rounded-md p-2 "}>
       {headingView}
     </li>
   );
