@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { Typography } from "@mui/material";
 import AppContext from "../../AppContext";
-import CoursesDropDown from "./CoursesDropDown";
+import Markdown from "markdown-to-jsx";
 
-const Welcome = () => {
+const ContentPage = ({pageTitle, pageContent, pageDetails}) => {
   const myContext = useContext(AppContext);
+
+  const placeholderMarkdown = `${pageContent}`;
 
   function handleLeftNavbarVisibility() {
     myContext.setIsHoveredOnContentdata(false);
@@ -29,11 +31,12 @@ const Welcome = () => {
             : " lg:w-[100%] md:w-[100%] w-[100%]")
         }
       >
-        <div className="pt-8 z-1">
-          <Typography variant="h4" style={{ fontWeight: "bold" }}>
-            About the documentation
-          </Typography>
-          <Typography
+        <div className="pt-8 z-1 pb-5">
+        <Markdown className="code">{placeholderMarkdown}</Markdown>
+          {/* <Typography variant="h4" style={{ fontWeight: "bold" }}>
+            {pageTitle}
+          </Typography> */}
+          {/* <Typography
             paragraph="true"
             style={{
               fontSize: "15px",
@@ -114,11 +117,11 @@ const Welcome = () => {
               support@deviasio.zendesk.com
             </span>
             .
-          </Typography>
+          </Typography> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default Welcome;
+export default ContentPage;

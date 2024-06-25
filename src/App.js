@@ -3,20 +3,11 @@ import Header from "./components/Header";
 import LeftNavBar from "./components/LeftNavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppContext from "./AppContext";
-import Welcome from "./components/pageDataComponents/Welcome";
-import GettingStarted from "./components/pageDataComponents/GettingStarted";
-import EnvironmentVars from "./components/pageDataComponents/EnvironmentVars";
-import Dependencies from "./components/pageDataComponents/Dependencies";
-import Routing from "./components/pageDataComponents/Routing";
-import Themeing from "./components/pageDataComponents/Themeing";
-import Redux from "./components/pageDataComponents/Redux";
-import ServerCalls from "./components/pageDataComponents/ServerCalls";
-import Settings from "./components/pageDataComponents/Settings";
+import ContentPage from "./components/pageDataComponents/ContentPage";
 import { useState } from "react";
-import Deployment from "./components/pageDataComponents/Deployment";
 import CoursesDropDown from "./components/pageDataComponents/CoursesDropDown";
-import HTMLIntroduction from "./components/pageDataComponents/HTMLIntroduction";
-import HTMLLeftNavBar from "./components/HTMLLeftNavBar";
+import ReactPage from "./pageContentFiles/ReactPage";
+import HTMLPage from "./pageContentFiles/HTMLPage";
 
 function App() {
 
@@ -43,28 +34,44 @@ function App() {
       <AppContext.Provider value={contextObject}>
         <BrowserRouter>
           <Header />
-          {contextObject.isClickedOnCoursesItem ? <HTMLLeftNavBar /> : <LeftNavBar />}
+          {contextObject.isClickedOnCoursesItem ? <LeftNavBar pagesData={HTMLPage}/> : <LeftNavBar pagesData={ReactPage}/>}
           {contextObject.isHoveredToCourses ? (
             <CoursesDropDown />
           ) : (
             <span></span>
           )}
           <Routes>
-            <Route path="/" element={<Welcome />} />
-            <Route path="/welcome" element={<Welcome />} />
-            <Route path="/getting_started" element={<GettingStarted />} />
-            <Route path="/dependencies" element={<Dependencies />} />
-            <Route
-              path="/environment_variables"
-              element={<EnvironmentVars />}
-            />
-            <Route path="/deployment" element={<Deployment />} />
-            <Route path="/routing" element={<Routing />} />
-            <Route path="/theming" element={<Themeing />} />
-            <Route path="/redux" element={<Redux />} />
-            <Route path="/server_calls" element={<ServerCalls />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/html/html_introduction" element={<HTMLIntroduction />} />
+            <Route path="/" element={<ContentPage 
+                      pageTitle={ReactPage[0].title}
+                      pageContent={ReactPage[0].content}
+                      pageDetails={ReactPage[0]}
+                    />}></Route>
+            {(contextObject.isClickedOnCoursesItem) ? (HTMLPage.map((page) => (
+                <Route
+                  key={page.id}
+                  path={page.path}
+                  element={
+                    <ContentPage 
+                      pageTitle={page.title}
+                      pageContent={page.content}
+                      pageDetails={page}
+                    />
+                  }
+                />
+              ))) :(ReactPage.map((page) => (
+                <Route
+                  key={page.id}
+                  path={page.path}
+                  element={
+                    <ContentPage 
+                      pageTitle={page.title}
+                      pageContent={page.content}
+                      pageDetails={page}
+                    />
+                  }
+                />
+              )))}
+          
           </Routes>
         </BrowserRouter>
       </AppContext.Provider>
@@ -73,3 +80,40 @@ function App() {
 }
 
 export default App;
+
+
+// import React from "react";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import DocumentationPage from "./viewcourse/DocumentationPage";
+// import ReactPage from "./pageContentFiles/ReactPage";
+// const Courses = () => {
+//   return (
+//     <div>
+//       <Router>
+//         <div className="app-container">
+//           <LeftNavBar pagesData={ReactPage} />
+
+//           <div className="main-content">
+//             <Routes>
+//               {ReactPage.map((page) => (
+//                 <Route
+//                   key={page.id}
+//                   path={page.path}
+//                   element={
+//                     <DocumentationPage
+//                       pageTitle={page.title}
+//                       pageContent={page.content}
+//                       pageDetails={page}
+//                     />
+//                   }
+//                 />
+//               ))}
+//             </Routes>
+//           </div>
+//         </div>
+//       </Router>
+//     </div>
+//   );
+// };
+
+// export default Courses;

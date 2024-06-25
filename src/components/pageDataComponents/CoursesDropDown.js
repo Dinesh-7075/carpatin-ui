@@ -13,7 +13,7 @@ const CoursesDropDown = () => {
     >
       <div>
         <ul className="list-disc my-2 font-bold px-2">
-          <Link onClick={()=>myContext.setIsClickedOnCourseMenuItem(true)} to="/html/html_introduction"><li className="flex p-2 items-center cursor-pointer">
+          <Link onClick={()=>myContext.setIsClickedOnCourseMenuItem(true)} to="/html-introduction"><li className="flex p-2 items-center cursor-pointer">
             <i class="fa-brands fa-html5 mr-2"></i>
             <span className="px-1">HTML</span>
           </li>

@@ -18,3 +18,8 @@
     background: #555;
     border-radius: 5px;
 }
+
+.markdown code {
+    display: block;
+    white-space: pre-wrap;
+  }
