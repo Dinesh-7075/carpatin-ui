@@ -35,10 +35,10 @@ const LeftNavBar = ({pagesData}) => {
                   let currRoute = (ele.title).split(" ").join("-").toLowerCase();
                   return (
                     <Link key={ele.id}
-                      className={
+                      className={(
                         window.location.pathname === `/${currRoute}`
                           ? "text-green-400"
-                          : "text-black"
+                          : "text-black" ) + " no-underline"
                       }
                       to={ele.path}
                     >

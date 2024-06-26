@@ -12,14 +12,14 @@ const CoursesDropDown = () => {
       onMouseLeave={() => myContext.setHoveredToCourses(false)}
     >
       <div>
-        <ul className="list-disc my-2 font-bold px-2">
-          <Link onClick={()=>myContext.setIsClickedOnCourseMenuItem(true)} to="/html-introduction"><li className="flex p-2 items-center cursor-pointer">
+        <ul className="list-disc my-2 font-bold px-2 no-underline">
+          <Link className="no-underline text-white" onClick={()=>myContext.setIsClickedOnCourseMenuItem(true)} to="/html-introduction"><li className="flex p-2 items-center cursor-pointer">
             <i class="fa-brands fa-html5 mr-2"></i>
             <span className="px-1">HTML</span>
           </li>
           </Link>
           <hr></hr>
-          <Link onClick={()=>myContext.setIsClickedOnCourseMenuItem(false)} to="/">
+          <Link className="no-underline text-white" onClick={()=>myContext.setIsClickedOnCourseMenuItem(false)} to="/">
           <li className="flex p-2 items-center cursor-pointer">
             <i class="fa-brands fa-react mr-2"></i>
             <span className="px-2">ReactJS</span>

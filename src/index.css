@@ -67,6 +67,9 @@ h1, h2, h3, h4, h5, h6 {
     padding:2px 5px;
   }
 
+  a:hover {
+    opacity: 0.8;
+  }
   code {
     background: #E0F0FF;
     font-family: JetBrains Mono NL, Courier New, Monospaced;
