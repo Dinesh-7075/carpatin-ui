@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Typography } from "@mui/material";
 import AppContext from "../../AppContext";
-import Markdown from "markdown-to-jsx";
+import Markdown from "react-markdown";
 
 const ContentPage = ({pageTitle, pageContent, pageDetails}) => {
-  const myContext = useContext(AppContext);
 
+  const myContext = useContext(AppContext);
   const placeholderMarkdown = `${pageContent}`;
 
   function handleLeftNavbarVisibility() {
@@ -13,7 +12,7 @@ const ContentPage = ({pageTitle, pageContent, pageDetails}) => {
     myContext.setIsClickedOnMenuBar(false);
     myContext.setisSideBarVisible(false);
   }
-
+  
   return (
     <div
       className={
@@ -31,93 +30,8 @@ const ContentPage = ({pageTitle, pageContent, pageDetails}) => {
             : " lg:w-[100%] md:w-[100%] w-[100%]")
         }
       >
-        <div className="pt-8 z-1 pb-5">
-        <Markdown className="code">{placeholderMarkdown}</Markdown>
-          {/* <Typography variant="h4" style={{ fontWeight: "bold" }}>
-            {pageTitle}
-          </Typography> */}
-          {/* <Typography
-            paragraph="true"
-            style={{
-              fontSize: "15px",
-              padding: "8px 10px",
-              marginBottom: "20px",
-            }}
-          >
-            Welcome to the documentation for Carpatin! This documentation will
-            take you from getting started with our kit to customizing it and
-            making it work for your use case.
-          </Typography>
-          <Typography variant="h5" style={{ fontWeight: "bold" }}>
-            Something Missing?
-          </Typography>
-          <Typography
-            paragraph="true"
-            style={{
-              fontSize: "15px",
-              padding: "8px 10px",
-              marginBottom: "20px",
-            }}
-          >
-            If you have ideas for more "How To" recipes that should be on this
-            page, please, let us know or contribute some!
-          </Typography>
-          <Typography variant="h5" style={{ fontWeight: "bold" }}>
-            Feedback
-          </Typography>
-          <Typography
-            paragraph="true"
-            style={{ fontSize: "15px", padding: "8px 10px" }}
-          >
-            We are always happy for you to send your feedback at{" "}
-            <span className="underline text-blue-500 cursor-pointer">
-              support@deviasio.zendesk.com
-            </span>
-            .
-          </Typography>
-
-          <Typography variant="h4" style={{ fontWeight: "bold" }}>
-            About the documentation
-          </Typography>
-          <Typography
-            paragraph="true"
-            style={{
-              fontSize: "15px",
-              padding: "8px 10px",
-              marginBottom: "20px",
-            }}
-          >
-            Welcome to the documentation for Carpatin! This documentation will
-            take you from getting started with our kit to customizing it and
-            making it work for your use case.
-          </Typography>
-          <Typography variant="h5" style={{ fontWeight: "bold" }}>
-            Something Missing?
-          </Typography>
-          <Typography
-            paragraph="true"
-            style={{
-              fontSize: "15px",
-              padding: "8px 10px",
-              marginBottom: "20px",
-            }}
-          >
-            If you have ideas for more "How To" recipes that should be on this
-            page, please, let us know or contribute some!
-          </Typography>
-          <Typography variant="h5" style={{ fontWeight: "bold" }}>
-            Feedback
-          </Typography>
-          <Typography
-            paragraph="true"
-            style={{ fontSize: "15px", padding: "8px 10px" }}
-          >
-            We are always happy for you to send your feedback at{" "}
-            <span className="underline text-blue-500 cursor-pointer">
-              support@deviasio.zendesk.com
-            </span>
-            .
-          </Typography> */}
+        <div className="pt-3 z-1 pb-5 w-[98%]">
+        <Markdown>{placeholderMarkdown}</Markdown>
         </div>
       </div>
     </div>

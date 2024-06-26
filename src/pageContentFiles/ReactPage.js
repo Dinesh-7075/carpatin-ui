@@ -1,37 +1,31 @@
 const ReactPage = [
-    {
-      id: 1,
-      title: "Getting Started",
-      path: "/getting-started",
-      content:
-        "# Getting Started\n\nBefore proceeding, you'll need to have the last stable [NodeJS](https://nodejs.org/en/)\nand [npm](https://www.npmjs.com)\ninstalled on your machine.\n\nYou can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or\n[nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to\nswitch Node versions between different projects.\n\n## Install dependencies\n\nOpen the project folder and install its dependencies. You can use any package manager you \nwant: [Yarn](https://yarnpkg.com)\nor [npm](https://www.npmjs.com). There might be other package managers that were not listed here.\n\n```shell\ncd project-folder\nnpm install\n```\n\n## Start development server\n\nOnce the installation is done, you can now run your app by running `npm run dev` or `yarn dev`.\n\n```shell\nnpm run dev\n```\n\nYou will see something similar to:\n\n```shell\nready - started server on 0.0.0.0:3000, url: http://localhost:3000\ninfo  - automatically enabled Fast Refresh for 1 custom loader\nevent - compiled successfully in 4.7s (1535 modules)\n```\n\nThis runs the app in development mode. Open [localhost:3000](http://localhost:3000) to view it in\nthe browser.\n\nWhile in development mode, the page will automatically reload if you make changes to the code.\nShould you have any, you will see the build errors and lint warnings in the console.\n\nThe app uses `ESLint`, so you will get detailed warnings and errors as well as best practice hints.\n\n## Build project files\n\n```shell\nnpm run build\n```\n\nor `yarn build`\n\nBuilds the app for production to the build folder. It correctly bundles React in production mode and\noptimizes the build for the best performance.\n\nThe build is minified, and the filenames include hashes.\n\nIf you have made your necessary changes, by this time, your app should ready to be deployed.\n\n> Please keep in mind that this project **_does not_** handle any backend logic nor databases; it is just a frontend you can use\n> it with any backend you want. This means that you will have to build such a backend or use any existing one you might\n> already have.\n",
-    },
-    {
-      id: 2,
-      title: "Dependencies",
-      path: "/dependencies",
-      content:
-        "##Dependencies\n\n\n\nThe app is built using the latest trends with periodic updates. The optional dependencies are used to create app features. If you do not need a feature, please remove the dependency to keep the project files clean and reduce dependency download and install time.\n##Important dependencies \n\n - `@emotion/cache - Styling` \n\n - `@emotion/react - Styling` \n\n - `@emotion/styled - Styling` \n\n - `@mui/icons-material - MUI icons` \n\n - `@mui/lab - Base theme components` \n\n - `@mui/material - Base theme components` \n\n - `@mui/system - Base theme system utilities` \n\n - `date-fns - Utils to parse date and time` \n\n - `react - Core` \n\n - `next - Core` \n\n - `stylis - Styling` \n\n - `stylis-plugin-rtl - Styling`, \n\n\n ##Optional dependencies, \n\n - `@auth0/auth0-spa-js - Handle Auth0 authentication`, \n\n - `@fullcalendar/core - Calendar`, \n\n - `@fullcalendar/daygrid - Calendar`, \n\n - `@fullcalendar/interaction - Calendar`, \n\n - `@fullcalendar/list - Calendar`, \n\n - `@fullcalendar/react - Calendar`, \n\n - `@fullcalendar/timegrid - Calendar`, \n\n - `@fullcalendar/timeline - Calendar`, \n\n - `@react-pdf/renderer - Render invoice`, \n\n - `@reduxjs/toolkit - Utilities for Redux`, \n\n - `apexcharts - Create charts`, \n\n - `aws-amplify - Handle Amplify authentication`, \n\n - `firebase - Handle Firebase authentication`, \n\n - `formik - Handle form and input events`, \n\n - `gray-matter - Parse docs markdown files`, \n\n - `i18next - Internationalization framework`, \n\n - `nprogress - Display page loading progress bar`, \n\n - `numeral - Utility to format numbers`, \n\n - `prop-types - Add prop type schema for components`, \n\n - `react-apexcharts - Chart components built over apexcharts library`, \n\n - `react-beautiful-dnd - Enable drag and drop functionality for Kanban`, \n\n - `react-dropzone - Drop zone functionality for FileDropzone component`, \n\n - `react-hot-toast - Display and manage notifications`, \n\n - `react-i18next - React wrapper over i18next library`, \n\n - `react-markdown - Parse markdown in html elements`, \n\n - `simplebar - Replace browser scrollbar with custom component`, \n\n - `simplebar-react - Simplebar React wrapper`, \n\n - `react-quill - Text editor alternative`, \n\n - `react-redux - React components for Redux`, \n\n - `react-syntax-highlighter - Highlight markdown code`, \n\n - `redux-devtools-extension - Display Redux State and Actions in devtools`, \n\n - `redux-thunk - Middleware to enable Redux async actions`, \n\n - `redux - State manager for Calendar, Chat, Kanban, and Mail apps`, \n\n - `yup - Validation library` ",
-    },
-    {
-      id: 3,
-      title: "Environment Variables",
-      path: "/environment-variables",
-      content:
-        "##Environment Variables\n\n\n\nBy default, Next.js compiler looks for .env file in projects root folder and reads its content. \n\n\n ###Loading Environment Variables \n\nNext.js has built-in support for loading environment variables from .env file into process.env. \n\n\n An example .env: \n\n```shell\nDB_HOST=localhost\nDB_USER=myuser\nDB_PASS=mypassword\n```\n\n\n This loads process.env.DB_HOST, process.env.DB_USER, and process.env.DB_PASS into the Node.js environment automatically allowing you to use them in Next.js data fetching methods and API routes. \n\n\n For example, using getStaticProps: \n\n```shell\n// pages/index.js\n\n```\n\n\n##Exposing Environment Variables to the Browser\n\n\nBy default environment variables are only available in the Node.js environment, meaning they won't be exposed to the brows\n\nIn order to expose a variable to the browser you have to prefix the variable with NEXT_PUBLIC_. For example:\n\n```shell\nNEXT_PUBLIC_ANALYTICS_ID=abcdefghijk```\n\n <span className='bar'></span>  WARNING: Do not store any secrets (such as private API keys or passwords) in the public variables! These environment variables are <span className='bar'></span>  embedded into the build, meaning anyone can view them by inspecting your app's files. \n\n\n\n\n\n\n\n\n\n\n\n\n\n## Private Variables \n\n Having access to the NODE_ENV is also useful for performing actions conditionally:\n\n```shell\n how are you```\n\n Read more about environment variables here",
-    },
-    {
-      id: 4,
-      title: "Deployment",
-      path: "/deployment",
-      content: `
-    ## Deployment
-    
-    ### Node.js Server
-    
-    Next.js can be deployed to any hosting provider that supports Node.js. Make sure your package.json has the \`build\` and \`start\`scripts:
-  
-    \`\`\`json
+  {
+    id: 1,
+    title: "Getting Started",
+    path: "/getting-started",
+    content:
+      '# Getting Started \n Before proceeding, youll need to have the last stable [NodeJS](https://nodejs.org/en/)\nand [npm](https://www.npmjs.com)\ninstalled on your machine.\n\nYou can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or\n[nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to\nswitch Node versions between different projects.\n\n## Install dependencies\n\nOpen the project folder and install its dependencies. You can use any package manager you \nwant: [Yarn](https://yarnpkg.com)\nor [npm](https://www.npmjs.com). There might be other package managers that were not listed here.\n\n``shell\ncd project-folder\nnpm install\n``\n\n## Start development server\n\nOnce the installation is done, you can now run your app by running `npm run dev` or `yarn dev`.\n\n```shell\nnpm run dev\n```\n\nYou will see something similar to:\n\n```shell\nready - started server on 0.0.0.0:3000, url: http://localhost:3000\ninfo  - automatically enabled Fast Refresh for 1 custom loader\nevent - compiled successfully in 4.7s (1535 modules)\n```\n\nThis runs the app in development mode. Open [localhost:3000](http://localhost:3000) to view it in\nthe browser.\n\nWhile in development mode, the page will automatically reload if you make changes to the code.\nShould you have any, you will see the build errors and lint warnings in the console.\n\nThe app uses `ESLint`, so you will get detailed warnings and errors as well as best practice hints.\n\n## Build project files\n\n```shell\nnpm run build\n```\n\nor `yarn build`\n\nBuilds the app for production to the build folder. It correctly bundles React in production mode and\noptimizes the build for the best performance.\n\nThe build is minified, and the filenames include hashes.\n\nIf you have made your necessary changes, by this time, your app should ready to be deployed.\n\n> Please keep in mind that this project **_does not_** handle any backend logic nor databases; it is just a frontend you can use\n> it with any backend you want. This means that you will have to build such a backend or use any existing one you might\n> already have.\n ',
+  },
+  {
+    id: 2,
+    title: "Dependencies",
+    path: "/dependencies",
+    content:
+      "# Dependencies\n\n\n\nThe app is built using the latest trends with periodic updates. The optional dependencies are used to create app features. If you do not need a feature, please remove the dependency to keep the project files clean and reduce dependency download and install time.\n##Important dependencies \n\n - `@emotion/cache - Styling` \n\n - `@emotion/react - Styling` \n\n - `@emotion/styled - Styling` \n\n - `@mui/icons-material - MUI icons` \n\n - `@mui/lab - Base theme components` \n\n - `@mui/material - Base theme components` \n\n - `@mui/system - Base theme system utilities` \n\n - `date-fns - Utils to parse date and time` \n\n - `react - Core` \n\n - `next - Core` \n\n - `stylis - Styling` \n\n - `stylis-plugin-rtl - Styling`, \n\n\n ##Optional dependencies, \n\n - `@auth0/auth0-spa-js - Handle Auth0 authentication`, \n\n - `@fullcalendar/core - Calendar`, \n\n - `@fullcalendar/daygrid - Calendar`, \n\n - `@fullcalendar/interaction - Calendar`, \n\n - `@fullcalendar/list - Calendar`, \n\n - `@fullcalendar/react - Calendar`, \n\n - `@fullcalendar/timegrid - Calendar`, \n\n - `@fullcalendar/timeline - Calendar`, \n\n - `@react-pdf/renderer - Render invoice`, \n\n - `@reduxjs/toolkit - Utilities for Redux`, \n\n - `apexcharts - Create charts`, \n\n - `aws-amplify - Handle Amplify authentication`, \n\n - `firebase - Handle Firebase authentication`, \n\n - `formik - Handle form and input events`, \n\n - `gray-matter - Parse docs markdown files`, \n\n - `i18next - Internationalization framework`, \n\n - `nprogress - Display page loading progress bar`, \n\n - `numeral - Utility to format numbers`, \n\n - `prop-types - Add prop type schema for components`, \n\n - `react-apexcharts - Chart components built over apexcharts library`, \n\n - `react-beautiful-dnd - Enable drag and drop functionality for Kanban`, \n\n - `react-dropzone - Drop zone functionality for FileDropzone component`, \n\n - `react-hot-toast - Display and manage notifications`, \n\n - `react-i18next - React wrapper over i18next library`, \n\n - `react-markdown - Parse markdown in html elements`, \n\n - `simplebar - Replace browser scrollbar with custom component`, \n\n - `simplebar-react - Simplebar React wrapper`, \n\n - `react-quill - Text editor alternative`, \n\n - `react-redux - React components for Redux`, \n\n - `react-syntax-highlighter - Highlight markdown code`, \n\n - `redux-devtools-extension - Display Redux State and Actions in devtools`, \n\n - `redux-thunk - Middleware to enable Redux async actions`, \n\n - `redux - State manager for Calendar, Chat, Kanban, and Mail apps`, \n\n - `yup - Validation library",
+  },
+  {
+    id: 3,
+    title: "Environment Variables",
+    path: "/environment-variables",
+    content:
+      "# Environment Variables\n\n\n\nBy default, Next.js compiler looks for .env file in projects root folder and reads its content. \n\n\n ## Loading Environment Variables \n\nNext.js has built-in support for loading environment variables from .env file into process.env. \n\n\n An example .env: \n\n```shell\nDB_HOST=localhost\nDB_USER=myuser\nDB_PASS=mypassword\n```\n\n\n This loads process.env.DB_HOST, process.env.DB_USER, and process.env.DB_PASS into the Node.js environment automatically allowing you to use them in Next.js data fetching methods and API routes. \n\n\n For example, using getStaticProps: \n\n```shell\n// pages/index.js\n\n```\n\n\n## Exposing Environment Variables to the Browser\n\n\nBy default environment variables are only available in the Node.js environment, meaning they won't be exposed to the brows\n\nIn order to expose a variable to the browser you have to prefix the variable with NEXT_PUBLIC_. For example:\n\n```shell\nNEXT_PUBLIC_ANALYTICS_ID=abcdefghijk```\n\n <span className='bar'></span> \n WARNING: Do not store any secrets (such as private API keys or passwords) in the public variables! \n These environment variables are <span className='bar'></span>  embedded into the build, \n meaning anyone can view them by inspecting your app's files. \n\n\n\n\n\n\n## Private Variables \n\n Having access to the NODE_ENV is also useful for performing actions conditionally:\n\n```shell\n how are you```\n\n Read more about environment variables here",
+  },
+  {
+    id: 4,
+    title: "Deployment",
+    path: "/deployment",
+    content: ` # Deployment \n ## Node.js Server \n Next.js can be deployed to any hosting provider that supports Node.js. Make sure your package.json has the \"build"\ and \"start"\ scripts:
+
     {
       "scripts": {
         "dev": "next",
@@ -39,47 +33,43 @@ const ReactPage = [
         "start": "next start"
       }
     }
-    \`\`\`
-    \n\n\n <span style='color: 'green';>next build</span> builds the production application in the .next folder. After building, next start starts a Node.js server that supports hybrid pages, serving both statically generated and server-side rendered pages.
-  
-    ##Static HTML Export
-    \n\n\n\n next export allows you to export your app to static HTML, which can be run standalone without the need of a Node.js server.
+    
+    \n\n\n  builds the production application in the .next folder. After building, next start starts a Node.js server that supports hybrid pages, serving both statically generated and server-side rendered pages.\n ## Static HTML Export
+    \n\n\n\n Next export allows you to export your app to static HTML, which can be run standalone without the need of a Node.js server.
     \n\n\n\n The exported app supports almost every feature of Next.js, including dynamic routes, prefetching, preloading and dynamic imports.
-  
-    ##Vercel Deployment
+ \n ## Vercel Deployment
     \n\n\n\n The easiest way to deploy Next.js to production is to use the Vercel platform from the creators of Next.js. Vercel is a cloud platform for static sites, hybrid apps, and Serverless Functions. Read more about it from official docs
     `,
-    },
-  
-    {
-      id: 5,
-      title: "Routing",
-      path: "/routing",
-      content:
-        "##Routing\n\n Next.js has a file-system based router built on the concept of pages.\n\n When a file is added to the pages directory it's automatically available as a route.\n\n The files inside the pages directory can be used to define most common patterns\n\n\n##Index routes \n\n\n\n The router will automatically route files named index to the root of the directory.\n\n - `pages/index.js → /` \n\n - `pages/index.js → /` \n\n\n\n\n\n##Nested routes \n\n\n\n The router supports nested files. If you create a nested folder structure files will be automatically routed in the same way still.\n\n - `pages/blog/first-post.js → /blog/first-post` \n\n - `pages/dashboard/settings/username.js → /dashboard/settings/username` \n\n\n\n\n\n\n\n ##Dynamic route segments \n\n\n\n Defining routes by using predefined paths is not always enough for complex applications. In Next.js you can add brackets to a page ([param]) to create a dynamic route (a.k.a. url slugs, pretty urls, and others)",
-    },
-    {
-      id: 6,
-      title: "Theming",
-      path: "/theming",
-      content:
-        "##Theming\n\n\n MUI offers a utility function: createTheme() that creates a theme which can be passed to the theme provider; \n\n Otherwise the theme provider uses the default theme. The theme provider makes the theme available in the component tree, and can be used via the sx prop, or inside styled components using the MUI styled engine (styled). \n\n\n\n\n\n\n\n ##Creating a theme \n\n\n The app allows you to choose between multiple theme setups, thus a wrapper was created over the createTheme. Currently, the function accepts a configuration object with the following keys: \n\n - `direction [ 'ltr' | 'rtl' ] - Sets the text direction. If you need RTL support, please ensure you use RTL component.` \n\n - `responsiveFontSizes [ boolean ] - Adaptive font size for small devices.` \n\n - `mode [ 'light' | 'dark' ] - Select a specific theme configuration. You can add your own styling or adjust current options.` \n\n\n ```shell \n // src/pages/index.js \n import { ThemeProvider } from '@mui/material/styles'; \n import { createTheme } from '../theme'; \n\n const Home = () => { \n         const theme = createTheme({ \n               direction: 'ltr', \n               responsiveFontSizes: true, \n               paletteMode: 'dark' \n          }); \n\n           return ( \n                <ThemeProvider theme={theme}> \n                       <div> content </div> \n                 </ThemeProvider> \n            ); \n } ``` \n\n\n ##Nested themes \n\n Multiple themes can be nested. The app implements this behaviour to display the components on light/dark palette mode without changing the app global theme. ",
-    },
-    {
-      id: 7,
-      title: "Redux",
-      path: "/redux",
-      content: `
-    ## Redux
+  },
+
+  {
+    id: 5,
+    title: "Routing",
+    path: "/routing",
+    content:
+      "# Routing\n\n Next.js has a file-system based router built on the concept of pages.\n\n When a file is added to the pages directory it's automatically available as a route.\n\n The files inside the pages directory can be used to define most common patterns\n\n\n##Index routes \n\n\n\n The router will automatically route files named index to the root of the directory.\n\n - `pages/index.js → /` \n\n - `pages/index.js → /` \n\n\n\n\n\n##Nested routes \n\n\n\n The router supports nested files. If you create a nested folder structure files will be automatically routed in the same way still.\n\n - `pages/blog/first-post.js → /blog/first-post` \n\n - `pages/dashboard/settings/username.js → /dashboard/settings/username` \n\n\n\n\n\n\n\n ##Dynamic route segments \n\n\n\n Defining routes by using predefined paths is not always enough for complex applications. In Next.js you can add brackets to a page ([param]) to create a dynamic route (a.k.a. url slugs, pretty urls, and others)",
+  },
+  {
+    id: 6,
+    title: "Theming",
+    path: "/theming",
+    content:
+      "# Theming\n\n\n MUI offers a utility function: createTheme() that creates a theme which can be passed to the theme provider; \n\n Otherwise the theme provider uses the default theme. The theme provider makes the theme available in the component tree, and can be used via the sx prop, or inside styled components using the MUI styled engine (styled). \n\n\n\n\n\n\n\n ##Creating a theme \n\n\n The app allows you to choose between multiple theme setups, thus a wrapper was created over the createTheme. Currently, the function accepts a configuration object with the following keys: \n\n - `direction [ 'ltr' | 'rtl' ] - Sets the text direction. If you need RTL support, please ensure you use RTL component.` \n\n - `responsiveFontSizes [ boolean ] - Adaptive font size for small devices.` \n\n - `mode [ 'light' | 'dark' ] - Select a specific theme configuration. You can add your own styling or adjust current options.` \n\n\n ```shell \n // src/pages/index.js \n import { ThemeProvider } from '@mui/material/styles'; \n import { createTheme } from '../theme'; \n\n const Home = () => { \n         const theme = createTheme({ \n               direction: 'ltr', \n               responsiveFontSizes: true, \n               paletteMode: 'dark' \n          }); \n\n           return ( \n                <ThemeProvider theme={theme}> \n                       <div> content </div> \n                 </ThemeProvider> \n            ); \n } ``` \n\n\n ##Nested themes \n\n Multiple themes can be nested. The app implements this behaviour to display the components on light/dark palette mode without changing the app global theme. ",
+  },
+  {
+    id: 7,
+    title: "Redux",
+    path: "/redux",
+    content: `# Redux
   
     \n\n\n Redux is more robust alternative for state management, that offers more helpful features out of the box. Follow the official documentation to understand the entire concept behind it.
     
-    \n\n\n ##Usage
+    \n\n\n ## Usage
     \n\n The app uses Redux Toolkit with hooks (Thunk method, not Sagas) to manage the state for Calendar, Chat, Kanban and Mail apps.
     \n This can be replaced with Context API, or any other system, in a matter of hours due the clean structure of the project.
     \n\n The app at hand uses Redux, but you can find Context API examples in the project. You can also opt for Recoil, maintained by Facebook, a new alternative that allows you to split the state in multiple "atoms". An example is not included, but the ones from Facebook documentation should be simple enough to use in your project.
   
-    ## How to use
+    \n ## How to use
     \n\n There are 2 main folders:
         \n\n 1. src/slices where you can find the implementation of the reducer logic.
         \n\n 2. src/store which exports a store and combines the reducers in one root reducer.
@@ -92,7 +82,7 @@ const ReactPage = [
     <br/>
     <br/>
     ## Create a new slice
-    \n\n\ Create a new file in src/slices, and name it blog.js. Now open this new file with your favorite IDE, and import createSlice from @reduxjs/toolkit package to create the new slice.
+    \n\n Create a new file in src/slices, and name it blog.js. Now open this new file with your favorite IDE, and import createSlice from @reduxjs/toolkit package to create the new slice.
   
     \`\`\`JavaScript
     import { createSlice } from '@reduxjs/toolkit';
@@ -137,18 +127,17 @@ const ReactPage = [
     });
     \`\`\`
     `,
-    },
-    {
-      id: 8,
-      title: "Server Calls",
-      path: "/server-calls",
-      content: `
-    ## Server Calls
+  },
+  {
+    id: 8,
+    title: "Server Calls",
+    path: "/server-calls",
+    content: `# Server Calls
     \n\n The application simulates all server calls using in memory data storage. This can be easily modified to connect to any server.
     \n\n\n You can use any library you like. Most apps use Axios since it allows you to create instances, attach interceptors, and many other features. Another good alternative could be Fetch.
     <br/>
     <br/>
-    ## Example of current implementation
+    \n ## Example of current implementation
     \n\n \`\`\`JavaScript
     class CustomerApi {
       getCustomers() {
@@ -182,11 +171,11 @@ const ReactPage = [
       );
     };
     \`\`\` \n\n
-    The customerApi is a singleton class instance that simply responds with a Promise. You can add as many requests methods as you need, test request structure or even use as middleware between UI and server request to process your input and output data
+    The customerApi is a singleton class instance that simply responds with a Promise. You can add as \n many requests  methods as you need, test request structure or even use as\n middleware between UI and server request to process your input and output data
     <br/>
     <br/>
-    ## Example with Fetch
-    \n\n \`\`\`JavaScript
+   \n ## Example with Fetch
+   \`\`\`JavaScript
     const Page = () => {
       const [customers, setCustomers] = useState(null);
     
@@ -233,12 +222,12 @@ const ReactPage = [
     \`\`\`
     <br/>
     ## Axios Request interceptors
-    \n\n By using Axios you are able to integrate Axios Mock Adapter to simulate real server calls. To archive that, you have to create an Axios instance and use it whenever you make a request call. Now you can extend your instance and add Axios Mock Adapter to listen for requests and return custom data.
+    \n\n By using Axios you are able to integrate Axios Mock Adapter to simulate real server calls. To archive that, \nyou have to create an Axios instance and use it whenever you make a request call. Now you can extend \nyour instance and add Axios Mock Adapter to listen for requests and return custom data.
     <br/>
     <br/>
     <br/>
     ## Adding request interceptors
-    \n\n It takes ony a few seconds to add a new http request listener. The interceptor has a similar format to Express JS, for example:
+    \n\n It takes ony a few seconds to add a new http request listener. The interceptor \nhas a similar format to Express JS, for example:
     \n\n \`\`\`JavaScript
     import axios from 'axios';  // You need to install it
     import AxiosMockAdapter from 'axios-mock-adapter';  // You need to install it
@@ -260,13 +249,12 @@ const ReactPage = [
     });
     \`\`\`
     `,
-    },
-    {
-      id: 9,
-      title: "Settings",
-      path: "/settings",
-      content: `
-    ## Settings
+  },
+  {
+    id: 9,
+    title: "Settings",
+    path: "/settings",
+    content: `# Settings
     \n\n It is important for your customers to have some control over the app interface. To make that possible you need a way to let the app know which are the user preferences. In order to achieve it, the app uses a context that can make its data available in the entire component tree for usage and control.
     \n\n Currently, the app allows you to control the theme, and you can choose between available options, toggle RTL (right-to-left text direction). This is a simple implementation to give you an idea on how can the configurations be made. It might be in your best interest to adjust it to your business needs. You might want to have a specific app interface, and allow other setup options, or remove some of the existing ones.
     <br/>
@@ -323,13 +311,12 @@ const ReactPage = [
     };
     \`\`\` \n\n
       `,
-    },
-    {
-      id: 10,
-      title: "RTL",
-      path: "/rtl",
-      content: `
-    ## RTL
+  },
+  {
+    id: 10,
+    title: "RTL",
+    path: "/rtl",
+    content: `# RTL
     \n\n Text direction is extremely important for cultures where "right-to-left" writing is used. The app has this functionality implemented.
     <br/>
     <br/>
@@ -357,13 +344,12 @@ const ReactPage = [
     \n\n 2. Remove RTL component import and usage from App component.
     \n\n 3. Uninstall the @emotion/cache andstylis-plugin-rtl dependencies.
     `,
-    },
-    {
-      id: 11,
-      title: "Internationalization",
-      path: "/internationalization",
-      content: `
-    ## Internationalization
+  },
+  {
+    id: 11,
+    title: "Internationalization",
+    path: "/internationalization",
+    content: `# Internationalization
     \n\n Supporting multiple languages may represent an important feature for your app. To have this enabled the app uses i18next framework. Read more about it here.
     <br/>
     ## How it works
@@ -414,13 +400,12 @@ const ReactPage = [
     \n\n 3. Remove LanguagePopover component since it connects with the library.
     \n\n 4. Uninstall i18next and react-i18next dependencies.
       `,
-    },
-    {
-      id: 12,
-      title: "Amplify",
-      path: "/amplify",
-      content: `
-    ## Amplify
+  },
+  {
+    id: 12,
+    title: "Amplify",
+    path: "/amplify",
+    content: `# Amplify
     \n\n AWS Amplify is a set of services accompanied by various tools and libraries created to help the development of apps. Their suite offers among other features, an authentication feature, which can be used as a stand-alone authentication system. The project is able to be used with this authentication system, as well. Should you want to implement any of the other features Amplify offers, you can refer to their documentation.
     <br/>
     <br/>
@@ -469,13 +454,12 @@ const ReactPage = [
     \`\`\` \n\n
     Do continue.........
       `,
-    },
-    {
-      id: 13,
-      title: "Auth0",
-      path: "/auth0",
-      content: `
-    ## Auth0
+  },
+  {
+    id: 13,
+    title: "Auth0",
+    path: "/auth0",
+    content: `# Auth0
     \n\n Auth0 is an easy to implement, adaptable authentication and authorization platform. Auth0 provides a library built for React, but the app uses a more generic library designed for universal SPAs. This gives you more control over the components, as the app needs to provide support for multiple authentication providers. You can refer to their documentation as you deem fit, or in case you need things not covered in the app.
     <br/>
     <br/>
@@ -532,13 +516,12 @@ const ReactPage = [
     ## How to use auth
     \n\n be continue....
       `,
-    },
-    {
-      id: 14,
-      title: "Firebase",
-      path: "/firebase",
-      content: `
-    ## Firebase
+  },
+  {
+    id: 14,
+    title: "Firebase",
+    path: "/firebase",
+    content: `# Firebase
     \n\n Firebase is a complete set of solutions, from Analytics to Cloud Functions. In the app at hand, only the authentication service is used, although you can decide to use more of their features. Please refer to their documentation as you deem necessary
     <br/>
     <br/>
@@ -591,13 +574,12 @@ const ReactPage = [
     ## Step 2. Replace the hook context
     \n\n Do continue..........
       `,
-    },
-    {
-      id: 15,
-      title: "JWT",
-      path: "/jwt",
-      content: `
-    ## JSON Web Token (JWT)
+  },
+  {
+    id: 15,
+    title: "JWT",
+    path: "/jwt",
+    content: `# JSON Web Token (JWT)
     \n\n Most auth providers use this strategy under the hood to provide access tokens. Currently, the app doesn't cover the backend service, and this service is mocked (faked) using http client interceptors. The implementation is basic, but enough to give you a starting point.
     <br/>
     <br/>
@@ -683,13 +665,12 @@ const ReactPage = [
     \n\n - Login
     \n\n - Logout
     `,
-    },
-    {
-      id: 16,
-      title: "Guest Guard",
-      path: "/guestguard",
-      content: `
-    ## Guest Guard
+  },
+  {
+    id: 16,
+    title: "Guest Guard",
+    path: "/guestguard",
+    content: `# Guest Guard
     \n\n There are some situations when you want to make a route visible exclusively for users that are not authenticated, such as /authentication/register, /authentication/login, etc.
     \n\n For such situations, the app provides you with a sample GuestGuard component that can be used to make redirect the user to a certain route (currently /dashboard). Should you want to modify said route you can do so by modifying the GuestGuard component. There was no need to make a more complex logic for this GuestGuard component, as the business logic needed for your specific app might need a different approach regardless.
     \n\n To be able to prevent the entire page render, the app provides a simple hoc utility that wraps the page with the GuestGuard.
@@ -714,13 +695,12 @@ const ReactPage = [
     ## How it works
     \n\n It connects with the authentication provider (Amplify, Auth0, Firebase, or JWT, depending on your setup) and extracts the required data to detect whether it can render the children passed as props, otherwise it redirects the user to the /dashboard route.
       `,
-    },
-    {
-      id: 17,
-      title: "Auth Guard",
-      path: "/authguard",
-      content: `
-    ## Auth Guard
+  },
+  {
+    id: 17,
+    title: "Auth Guard",
+    path: "/authguard",
+    content: `# Auth Guard
     \n\n This is a simple component that can be used to protect a private route. It controls whether it should allow navigation to a requested route based on given context. Similar to the GuestGuard, the app provides a hoc to prevent the entire page render.
     <br/>
     <br/>
@@ -745,13 +725,13 @@ const ReactPage = [
     <br/>
     <br/>
     ## How it can be extended
-    \n\n As mentioned, this is a sample component, thus it can and should be adjusted to match your business needs.`,},
-    {
-      id: 18,
-      title: "Role Based Guard",
-      path: "/rolebasedguard",
-      content: `
-    ## Role Based Guard
+    \n\n As mentioned, this is a sample component, thus it can and should be adjusted to match your business needs.`,
+  },
+  {
+    id: 18,
+    title: "Role Based Guard",
+    path: "/rolebasedguard",
+    content: `# Role Based Guard
     \n\n Many apps have complex user interfaces and flows. Some might have a list of routes for specific user roles or rights, such as admin, editor, content manager, etc, or even display a completely different interface for the same route. If that's the case for your project, you may want to check whether the user is authenticated their Access Control List (ACL) This depends a lot on your business, and your chosen ACL implementation / provider.
     \n\n Guarding is a concept that usually refers to route protection, but it can also be applied to components, and instead of redirecting the user to another route, you can render a different component.
     <br/>
@@ -791,13 +771,12 @@ const ReactPage = [
     };
     \`\`\` \n\n
       `,
-    },
-    {
-      id: 19,
-      title: "Introduction",
-      path: "/introduction",
-      content: `
-    ## Introduction
+  },
+  {
+    id: 19,
+    title: "Introduction",
+    path: "/introduction",
+    content: `# Introduction
     \n\n For many companies is important to understand the user traffic, origin and behaviour. This may apply to your business, and you can find an example in the app.
     <br/>
     <br/>
@@ -813,13 +792,12 @@ const ReactPage = [
     ## How is it implemented
     \n\n The app uses a small singleton class to help with loading the GTM library, initialize it and track events via the GTM available methods.
     `,
-    },
-    {
-      id: 20,
-      title: "Configuration",
-      path: "/configuration",
-      content: `
-    ## Configuration
+  },
+  {
+    id: 20,
+    title: "Configuration",
+    path: "/configuration",
+    content: `# Configuration
     <br/>
     ## Create GTM account
     \n\n In order to use the GTM platform, you need to create a GTM account. Read more about it here.
@@ -838,13 +816,12 @@ const ReactPage = [
     };
     \`\`\` \n\n
       `,
-    },
-    {
-      id: 21,
-      title: "Event tracking",
-      path: "/eventtracking",
-      content: `
-    ## Event tracking
+  },
+  {
+    id: 21,
+    title: "Event tracking",
+    path: "/eventtracking",
+    content: `# Event tracking
     \n\n By default, the GTM library's push platform captures the browser location data, such as url, pathname, title, and other details. You can extend it to match your business needs. For example, you may need the event name, site section, campaign name, product name, price, process step, etc.
     <br/>
     ## Page View
@@ -896,13 +873,12 @@ const ReactPage = [
     \`\`\` \n\n
     As it can be seen, this example has multiple variables to help you identify the product that was added to cart and its price. These are called conversion variables in most systems, and they are used to determine the user behaviour after visiting a specific page or site section. If the user does not complete the checkout process, you are able to identify most products added to the cart, and make decisions based on metrics.
       `,
-    },
-    {
-      id: 22,
-      title: "Changelog",
-      path: "/changelog",
-      content: `
-    ## v3.0.0
+  },
+  {
+    id: 22,
+    title: "Changelog",
+    path: "/changelog",
+    content: `# v3.0.0
     \n\n Feb 14, 2023
     \n\n - Add support for Next.js 13
     \n\n - Add auth page layout
@@ -944,31 +920,28 @@ const ReactPage = [
   \n\n Jul 10, 2021
     \n\n - Initial release.
       `,
-    },
-    {
-      id: 23,
-      title: "Contact",
-      path: "/contact",
-      content: `
-    ## Contact
+  },
+  {
+    id: 23,
+    title: "Contact",
+    path: "/contact",
+    content: `# Contact
     \n\n Our support mainly covers pre-sale questions, basic product questions and bug reports through our support email: support@deviasio.zendesk.com.
     \n\n To be eligible to request the technical support you must have purchased the theme and have at least one Standard or Extended license.
     \n\n On submitting a support request please do describe your issue with more details. If you can provide a link to your developing site then this can help us to solve your issue faster.
     \n\n All 3rd party plugins used in the theme are provided as bonus, and we do not give any guarantee to their functionalities. Our support does not cover any 3rd party plugin customization or bug fixes that are not in our control.
     \n\n Customers are always welcome to ask for feature requests and give suggestions that can improve our premium themes. All feature requests definitely will be considered, and the new features will be released with upcoming releases.
       `,
-    },
-    {
-      id: 24,
-      title: "Further Support",
-      path: "/furthersupport",
-      content: `
-    ## Further Support
+  },
+  {
+    id: 24,
+    title: "Further Support",
+    path: "/furthersupport",
+    content: `# Further Support
     \n\n This documentation covers only broad use cases and relies on you or your developers having existing and pretty extensive previous knowledge of the libraries in use, as well as web technologies. Should this not be your scenario, please keep in mind our team offers special training and exclusive for pay support, and based on your project size and our availability, we can take custom requests at a fee. For more details please get in contact with our team of experts on https://devias.io/contact.
       `,
-    },
-    // Add more top-level pages as needed
-  ];
-   
-  export default ReactPage;
-  
+  },
+  // Add more top-level pages as needed
+];
+
+export default ReactPage;

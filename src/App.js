@@ -16,6 +16,7 @@ function App() {
   const [isHoveredOnContentdata, setIsHoveredOnContentdata] = useState(false);
   const [hoveredToCourses, setHoveredToCourses] = useState(false);
   const [isClickedOnCourseMenuItem, setIsClickedOnCourseMenuItem] = useState(false);
+
   const contextObject = {
     isClickedOnMenu: isClickedOnMenuBar,
     isHoveredToCourses: hoveredToCourses,
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div>
+      {console.log(contextObject.isClickedOnCoursesItem )}
       <AppContext.Provider value={contextObject}>
         <BrowserRouter>
           <Header />
@@ -45,6 +47,11 @@ function App() {
                       pageTitle={ReactPage[0].title}
                       pageContent={ReactPage[0].content}
                       pageDetails={ReactPage[0]}
+                    />}></Route>
+            <Route path="/html-introduction" element={<ContentPage 
+                      pageTitle={HTMLPage[0].title}
+                      pageContent={HTMLPage[0].content}
+                      pageDetails={HTMLPage[0]}
                     />}></Route>
             {(contextObject.isClickedOnCoursesItem) ? (HTMLPage.map((page) => (
                 <Route
@@ -71,7 +78,6 @@ function App() {
                   }
                 />
               )))}
-          
           </Routes>
         </BrowserRouter>
       </AppContext.Provider>
@@ -82,38 +88,13 @@ function App() {
 export default App;
 
 
-// import React from "react";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import DocumentationPage from "./viewcourse/DocumentationPage";
-// import ReactPage from "./pageContentFiles/ReactPage";
-// const Courses = () => {
-//   return (
-//     <div>
-//       <Router>
-//         <div className="app-container">
-//           <LeftNavBar pagesData={ReactPage} />
 
-//           <div className="main-content">
-//             <Routes>
-//               {ReactPage.map((page) => (
-//                 <Route
-//                   key={page.id}
-//                   path={page.path}
-//                   element={
-//                     <DocumentationPage
-//                       pageTitle={page.title}
-//                       pageContent={page.content}
-//                       pageDetails={page}
-//                     />
-//                   }
-//                 />
-//               ))}
-//             </Routes>
-//           </div>
-//         </div>
-//       </Router>
-//     </div>
-//   );
-// };
 
-// export default Courses;
+
+
+// const { pathname } = useLocation();
+// useEffect(() => {
+//   window.scrollTo(0, 0);
+//   console.log(pathname);
+//   if(pathname === '/html-introduction') contextObject.setIsClickedOnCourseMenuItem(true);
+// }, [pathname]);
