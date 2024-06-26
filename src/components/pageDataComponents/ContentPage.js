@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import Markdown from "react-markdown";
-import Code from "../Code";
+// import Code from "../Code";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 const ContentPage = ({pageTitle, pageContent, pageDetails}) => {
