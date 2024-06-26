@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
 import AppContext from "../../AppContext";
 import Markdown from "react-markdown";
-
+import Code from "../Code";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
+import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 const ContentPage = ({pageTitle, pageContent, pageDetails}) => {
 
   const myContext = useContext(AppContext);
   const placeholderMarkdown = `${pageContent}`;
+
+  // const Pre = ({ children }) => <pre className="blog-pre">
+  //       <Code>{children}</Code>
+  //       {children}
+  //   </pre>
 
   function handleLeftNavbarVisibility() {
     myContext.setIsHoveredOnContentdata(false);
@@ -31,7 +38,26 @@ const ContentPage = ({pageTitle, pageContent, pageDetails}) => {
         }
       >
         <div className="pt-3 z-1 pb-5 w-[98%]">
-        <Markdown>{placeholderMarkdown}</Markdown>
+        <Markdown components={{
+                // pre: Pre,
+                code({ node, inline, className = "blog-code", children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || '')
+                    return !inline && match ? (
+                        <SyntaxHighlighter
+                            style={a11yDark}
+                            language={match[1]}
+                            PreTag="div"
+                            {...props}
+                        >
+                            {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                    ) : (
+                        <code className={className} {...props}>
+                            {children}
+                        </code>
+                    )
+                }
+            }}>{placeholderMarkdown}</Markdown>
         </div>
       </div>
     </div>
