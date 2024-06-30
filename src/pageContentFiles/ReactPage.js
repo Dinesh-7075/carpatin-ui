@@ -669,7 +669,7 @@ const ReactPage = [
   {
     id: 16,
     title: "Guest Guard",
-    path: "/guestguard",
+    path: "/guest-guard",
     content: `# Guest Guard
     \n\n There are some situations when you want to make a route visible exclusively for users that are not authenticated, such as /authentication/register, /authentication/login, etc.
     \n\n For such situations, the app provides you with a sample GuestGuard component that can be used to make redirect the user to a certain route (currently /dashboard). Should you want to modify said route you can do so by modifying the GuestGuard component. There was no need to make a more complex logic for this GuestGuard component, as the business logic needed for your specific app might need a different approach regardless.
@@ -699,7 +699,7 @@ const ReactPage = [
   {
     id: 17,
     title: "Auth Guard",
-    path: "/authguard",
+    path: "/auth-guard",
     content: `# Auth Guard
     \n\n This is a simple component that can be used to protect a private route. It controls whether it should allow navigation to a requested route based on given context. Similar to the GuestGuard, the app provides a hoc to prevent the entire page render.
     <br/>
@@ -730,7 +730,7 @@ const ReactPage = [
   {
     id: 18,
     title: "Role Based Guard",
-    path: "/rolebasedguard",
+    path: "/role-based-guard",
     content: `# Role Based Guard
     \n\n Many apps have complex user interfaces and flows. Some might have a list of routes for specific user roles or rights, such as admin, editor, content manager, etc, or even display a completely different interface for the same route. If that's the case for your project, you may want to check whether the user is authenticated their Access Control List (ACL) This depends a lot on your business, and your chosen ACL implementation / provider.
     \n\n Guarding is a concept that usually refers to route protection, but it can also be applied to components, and instead of redirecting the user to another route, you can render a different component.
@@ -820,7 +820,7 @@ const ReactPage = [
   {
     id: 21,
     title: "Event tracking",
-    path: "/eventtracking",
+    path: "/event-tracking",
     content: `# Event tracking
     \n\n By default, the GTM library's push platform captures the browser location data, such as url, pathname, title, and other details. You can extend it to match your business needs. For example, you may need the event name, site section, campaign name, product name, price, process step, etc.
     <br/>

@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 import AppContext from "../AppContext";
 
 const LeftNavBar = ({pagesData}) => {
-
-  const [isHoveredToLeftbar, SetisHoveredToLeftbar] = useState(false);
   const myContext = useContext(AppContext);
 
   return (
     <div
+      style={{transition: "transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms"}}
       className={
         "bg-slate-50 sm:block fixed lg:w-[20%] md:w-[20%] xl:w-[20%] sm:w-[30%] w-[45%] shadow-lg top-[75px] h-[95%] lg:px-3 md:px-3 lg:block md:block hover:overflow-y-auto overflow-hidden " +
         (myContext.isClickedOnMenu ? " z-10 block " : " hidden ") +
@@ -18,8 +17,6 @@ const LeftNavBar = ({pagesData}) => {
       }
     >
       <div
-        onMouseOver={() => SetisHoveredToLeftbar(true)}
-        onMouseLeave={() => SetisHoveredToLeftbar(false)}
         className={
           (myContext.isClickedOnMenu
             ? "absolute z-10 overflow-y-auto block "
@@ -35,16 +32,17 @@ const LeftNavBar = ({pagesData}) => {
                   let currRoute = (ele.title).split(" ").join("-").toLowerCase();
                   return (
                     <Link key={ele.id}
-                      className={(
+                      className={
+                        (
                         window.location.pathname === `/${currRoute}`
                           ? "text-green-400"
-                          : "text-black" ) + " no-underline"
+                          : "text-black" ) +
+                           " no-underline"
                       }
                       to={ele.path}
                     >
                       <LeftNavBarList key={ele.id} headingView={ele.title} />
                     </Link>
-
                   )})}
               </ul>
         </div>

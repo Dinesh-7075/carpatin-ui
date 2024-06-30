@@ -4,7 +4,7 @@ const HTMLPage = [
       title: "HTML Introduction",
       path: "/html-introduction",
       content:
-        "# HTML Introduction\n\nBefore proceeding, you'll need to have the last stable [NodeJS](https://nodejs.org/en/)\nand [npm](https://www.npmjs.com)\ninstalled on your machine.\n\nYou can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or\n[nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to\nswitch Node versions between different projects.\n\n## Install dependencies\n\nOpen the project folder and install its dependencies. You can use any package manager you \nwant: [Yarn](https://yarnpkg.com)\nor [npm](https://www.npmjs.com). There might be other package managers that were not listed here.\n\n```shell\ncd project-folder\nnpm install\n```\n\n## Start development server\n\nOnce the installation is done, you can now run your app by running `npm run dev` or `yarn dev`.\n\n```shell\nnpm run dev\n```\n\nYou will see something similar to:\n\n```shell\nready - started server on 0.0.0.0:3000, url: http://localhost:3000\ninfo  - automatically enabled Fast Refresh for 1 custom loader\nevent - compiled successfully in 4.7s (1535 modules)\n```\n\nThis runs the app in development mode. Open [localhost:3000](http://localhost:3000) to view it in\nthe browser.\n\nWhile in development mode, the page will automatically reload if you make changes to the code.\nShould you have any, you will see the build errors and lint warnings in the console.\n\nThe app uses `ESLint`, so you will get detailed warnings and errors as well as best practice hints.\n\n## Build project files\n\n```shell\nnpm run build\n```\n\nor `yarn build`\n\nBuilds the app for production to the build folder. It correctly bundles React in production mode and\noptimizes the build for the best performance.\n\nThe build is minified, and the filenames include hashes.\n\nIf you have made your necessary changes, by this time, your app should ready to be deployed.\n\n> Please keep in mind that this project **_does not_** handle any backend logic nor databases; it is just a frontend you can use\n> it with any backend you want. This means that you will have to build such a backend or use any existing one you might\n> already have.\n",
+        "# HTML Introduction \n\n HTML is the standard markup language for Web pages. \n\n With HTML you can create your own Website. \n\n HTML is easy to learn -\n ## Example \n\n```shell\n<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n</body>\n</html>\n\n```\n\nYou will see something similar to:\n\n```shell\nready - started server on 0.0.0.0:3000, url: http://localhost:3000\ninfo  - automatically enabled Fast Refresh for 1 custom loader\nevent - compiled successfully in 4.7s (1535 modules)\n```\n\nThis runs the app in development mode. Open [localhost:3000](http://localhost:3000) to view it in\nthe browser.\n\nWhile in development mode, the page will automatically reload if you make changes to the code.\nShould you have any, you will see the build errors and lint warnings in the console.\n\nThe app uses `ESLint`, so you will get detailed warnings and errors as well as best practice hints.\n\n## Build project files\n\n```shell\nnpm run build\n```\n\nor `yarn build`\n\nBuilds the app for production to the build folder. It correctly bundles React in production mode and\noptimizes the build for the best performance.\n\nThe build is minified, and the filenames include hashes.\n\nIf you have made your necessary changes, by this time, your app should ready to be deployed.\n\n> Please keep in mind that this project **_does not_** handle any backend logic nor databases; it is just a frontend you can use\n> it with any backend you want. This means that you will have to build such a backend or use any existing one you might\n> already have.\n",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const HTMLPage = [
     {
       id: 4,
       title: "HTML Elements",
-      path: "/deployment",
+      path: "/html-elements",
       content: ` # HTML Elements \n ## Node.js Server \n Next.js can be deployed to any hosting provider that supports Node.js. Make sure your package.json has the \"build"\ and \"start"\ scripts:
 
     {
@@ -45,21 +45,21 @@ const HTMLPage = [
     {
       id: 5,
       title: "HTML Attributes",
-      path: "/routing",
+      path: "/html-attributes",
       content:
         "# HTML Attributes \n\n Next.js has a file-system based router built on the concept of pages.\n\n When a file is added to the pages directory it's automatically available as a route.\n\n The files inside the pages directory can be used to define most common patterns\n\n\n##Index routes \n\n\n\n The router will automatically route files named index to the root of the directory.\n\n - `pages/index.js → /` \n\n - `pages/index.js → /` \n\n\n\n\n\n##Nested routes \n\n\n\n The router supports nested files. If you create a nested folder structure files will be automatically routed in the same way still.\n\n - `pages/blog/first-post.js → /blog/first-post` \n\n - `pages/dashboard/settings/username.js → /dashboard/settings/username` \n\n\n\n\n\n\n\n ##Dynamic route segments \n\n\n\n Defining routes by using predefined paths is not always enough for complex applications. In Next.js you can add brackets to a page ([param]) to create a dynamic route (a.k.a. url slugs, pretty urls, and others)",
     },
     {
       id: 6,
       title: "HTML Paragraphs",
-      path: "/theming",
+      path: "/html-paragraphs",
       content:
         "# HTML Paragraphs \n\n\n MUI offers a utility function: createTheme() that creates a theme which can be passed to the theme provider; \n\n Otherwise the theme provider uses the default theme. The theme provider makes the theme available in the component tree, and can be used via the sx prop, or inside styled components using the MUI styled engine (styled). \n\n\n\n\n\n\n\n ##Creating a theme \n\n\n The app allows you to choose between multiple theme setups, thus a wrapper was created over the createTheme. Currently, the function accepts a configuration object with the following keys: \n\n - `direction [ 'ltr' | 'rtl' ] - Sets the text direction. If you need RTL support, please ensure you use RTL component.` \n\n - `responsiveFontSizes [ boolean ] - Adaptive font size for small devices.` \n\n - `mode [ 'light' | 'dark' ] - Select a specific theme configuration. You can add your own styling or adjust current options.` \n\n\n ```shell \n // src/pages/index.js \n import { ThemeProvider } from '@mui/material/styles'; \n import { createTheme } from '../theme'; \n\n const Home = () => { \n         const theme = createTheme({ \n               direction: 'ltr', \n               responsiveFontSizes: true, \n               paletteMode: 'dark' \n          }); \n\n           return ( \n                <ThemeProvider theme={theme}> \n                       <div> content </div> \n                 </ThemeProvider> \n            ); \n } ``` \n\n\n ##Nested themes \n\n Multiple themes can be nested. The app implements this behaviour to display the components on light/dark palette mode without changing the app global theme. ",
     },
     {
       id: 7,
       title: "HTML Styles",
-      path: "/redux",
+      path: "/html-styles",
       content: `# HTML Styles
   
     \n\n\n Redux is more robust alternative for state management, that offers more helpful features out of the box. Follow the official documentation to understand the entire concept behind it.
@@ -923,7 +923,7 @@ const HTMLPage = [
     {
       id: 23,
       title: "HTML Drag/Drop",
-      path: "/contact",
+      path: "/html-drag/drop",
       content: ` # HTML Drag/Drop
     \n\n Our support mainly covers pre-sale questions, basic product questions and bug reports through our support email: support@deviasio.zendesk.com.
     \n\n To be eligible to request the technical support you must have purchased the theme and have at least one Standard or Extended license.
