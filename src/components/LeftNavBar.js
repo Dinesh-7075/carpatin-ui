@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import LeftNavBarList from "./LeftNavBarList";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AppContext from "../AppContext";
 
 const LeftNavBar = ({pagesData}) => {
@@ -31,18 +31,19 @@ const LeftNavBar = ({pagesData}) => {
                 {pagesData.map((ele) => {
                   let currRoute = (ele.title).split(" ").join("-").toLowerCase();
                   return (
-                    <Link key={ele.id}
-                      className={
-                        (
-                        window.location.pathname === `/${currRoute}`
-                          ? "text-green-400"
-                          : "text-black" ) +
-                           " no-underline"
-                      }
+                    <NavLink exact key={ele.id} activeClassName='is-active'
+                      className={({ isActive }) => (isActive ? 'active' : 'inactive') + " no-underline"}
+                      // className={
+                        // (
+                        // window.location.pathname === `/${currRoute}`
+                        //   ? "text-green-400"
+                        //   : "text-black" ) +
+                          //  " no-underline"
+                      // }
                       to={ele.path}
                     >
                       <LeftNavBarList key={ele.id} headingView={ele.title} />
-                    </Link>
+                    </NavLink>
                   )})}
               </ul>
         </div>

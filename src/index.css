@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.active {
+  color: rgb(72, 228, 72);
+}
+
+.inactive {
+  color: black;
+}
+
 *{
     box-sizing: border-box;
 }
